@@ -1,4 +1,4 @@
-name: GitHub Classroom Workflow
+name: Checking lab work
 
 on: [push]
 
@@ -17,5 +17,15 @@ jobs:
         with:
             distribution: 'temurin'
             java-version: '17'
-      - name: Unit tests
-        uses: education/autograding@v1
+
+      - name: Run Unit Tests
+        run: mvn test
+
+      - name: Run Checkstyle
+        run: mvn checkstyle:checkstyle
+
+      - name: Archive Checkstyle Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: checkstyle-report
+          path: target/checkstyle-result.xml
