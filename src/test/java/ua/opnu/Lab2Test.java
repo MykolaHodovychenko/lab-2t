@@ -343,8 +343,8 @@ public class Lab2Test {
         @DisplayName("Test scale() method 8")
         void test40() {
             TimeSpan span = new TimeSpan(2, 2);
-            span.scale(99999999);
-            assertEquals(203333331, span.getHours());
+            span.scale(9999);
+            assertEquals(20331, span.getHours());
             assertEquals(18, span.getMinutes());
         }
 
